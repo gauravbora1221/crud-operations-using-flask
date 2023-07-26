@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> task update</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='/static/css/main.css')}}"
+</head>
+<body>
+    <br/>
+	<br/>
+    <br/>
+     <form method="POST" action="/update/{{tasks.id}}" align='center'>
+     	<input type="text" name="content" id="content" value="{{tasks.content}}"></input>
+		<input type="submit" value="update"></input> 
+     </form>
+
+	</body>
+	</html>

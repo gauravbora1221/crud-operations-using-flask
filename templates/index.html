@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> task</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='/static/css/main.css')}}"
+</head>
+<body>
+   {%block body%}
+	<div class="content" align='center'>
+        <h1> Task Master</h1>
+		{% if tasks|length < 1%}
+		<h3 align='center'> there are no tak, add One Below</h3>
+		{% else %}
+		<table border="1" align="center" width="400" bgcolor="#CCCCCC" >
+			<tr>
+				<th> Task</th>
+				<th> Added</th>
+				<th> Actions</th>
+			</tr>
+			{% for task in tasks%}
+			<tr>
+				<td>{{ task.content}}</td>
+				<td>{{ task.date_created.date()}}</td>
+				<td>
+				<a href="/update/{{task.id}}"> Update</a>
+				<br/>
+				<a href="/delete/{{task.id}}"> Delete</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	{% endif%}
+	{%endblock%}
+    <br/>
+	<br/>
+     <form method="POST" action="#" align='center' >
+     	<input type="text" name="content" id="content"></input>
+		<input type="submit" value="add task"></input> 
+     </form>
+
+	</body>
+	</html>
